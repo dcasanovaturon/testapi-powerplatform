@@ -7,6 +7,9 @@ namespace testapi_powerplatform
 {
     public class FlowCallRet
     {
+        
+        public string HederReqAdress { get; set; }
+
         public string URLOri { get; set; }
         public string PortOri { get; set; }
 
