@@ -21,11 +21,22 @@ namespace testapi_powerplatform.Controllers
         [HttpGet]
         public IEnumerable<FlowCallRet> Get()
         {
-            var remoteIpAddress = HttpContext.Connection.RemoteIpAddress;
+            var remoteIpAddress = Request.HttpContext.Connection.RemoteIpAddress;
+            var remotePort = Request.HttpContext.Connection.RemotePort;
+
+            var localIpAddress = Request.HttpContext.Connection.LocalIpAddress;
+            var localPort = Request.HttpContext.Connection.LocalPort;
+
+
 
             return Enumerable.Range(1, 1).Select(index => new FlowCallRet
             {
-                URLOri = remoteIpAddress.ToString()
+                URLOri = remoteIpAddress.ToString(),
+                PortOri = remotePort.ToString(),
+
+                URLLocal = localIpAddress.ToString(),
+                PortLocal = localPort.ToString()
+
             }).ToArray();
         }
     }
