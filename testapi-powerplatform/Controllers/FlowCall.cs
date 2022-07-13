@@ -11,13 +11,6 @@ namespace testapi_powerplatform.Controllers
     [Route("[controller]")]
     public class FlowCall : ControllerBase
     {
-        private readonly ILogger<WeatherForecastController> _logger;
-
-        public FlowCall(ILogger<WeatherForecastController> logger)
-        {
-            _logger = logger;
-        }
-
         [HttpGet]
         public IEnumerable<FlowCallRet> Get()
         {
