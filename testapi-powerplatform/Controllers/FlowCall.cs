@@ -21,9 +21,14 @@ namespace testapi_powerplatform.Controllers
             var localPort = Request.HttpContext.Connection.LocalPort;
 
 
+            var headeer = Request.Headers["x-forwarded-for"];
+
+
 
             return Enumerable.Range(1, 1).Select(index => new FlowCallRet
             {
+                HederReqAdress = headeer.ToString(),
+
                 URLOri = remoteIpAddress.ToString(),
                 PortOri = remotePort.ToString(),
 
